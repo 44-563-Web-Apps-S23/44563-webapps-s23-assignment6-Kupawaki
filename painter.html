@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Painter Stuff for Assignment 6</title>
+    </head>
+    
+    <body>
+        <h2>Painter entry by Kooper Young</h2>
+
+        <form>
+            <label for="form1_pass">The hidden painter name</label>
+            <input id="form1_pass" type="password" value="Monet">
+
+            <label for="form1_guess">Guess the Painter</label>
+            <input id="form1_guess" type="text">
+
+            <input type="button" onclick="checkPainter()" value="Check the guess">
+        </form>
+
+        <p id="results">This text will be replaced </p>
+
+        <script> 
+            good = 0
+            oops = 0
+            function checkPainter()
+            {
+                pass = document.getElementById("form1_pass").value
+                guess = document.getElementById("form1_guess").value
+                result = document.getElementById("results")
+                if(pass === guess)
+                {
+                    good += 1
+                    alert("You got it right!")
+                    //result.innerHTML = "Good:" + good + " and Oops:" + oops
+                }
+                else 
+                {
+                    oops += 1
+                    alert("Sorry!")
+                    //result.innerHTML = "Good:" + good + " and Oops:" + oops
+                }
+                result.innerHTML = "Good:" + good + "<br>Oops:" + oops
+            }
+        </script>
+    </body>
+</html> 
