@@ -43,5 +43,39 @@
                 result.innerHTML = "Good:" + good + "<br>Oops:" + oops
             }
         </script>
+
+        <div>
+            <img id="imgbox" src="oxalis.png" height="100px" width="100px" onclick="(selectImage())">
+        </div>
+
+        <script>
+            useImage = 1
+
+            function selectImage()
+            {
+                switch (useImage)
+                {
+                    case 1:
+                    document.getElementById("imgbox").src = "kniphofia.png"
+                        useImage++
+                        break;
+                    case 2:
+                    document.getElementById("imgbox").src = "yarrow.png"
+                        useImage++
+                        break;
+                    case 3:
+                    document.getElementById("imgbox").src = "oxalis.png"
+                        useImage = 1
+                        break;
+                    default:
+                        imgbox.src = "yarrow.png"
+                        useImage++
+                        break;
+                }
+            }
+        </script>
+
+
+
     </body>
 </html> 
