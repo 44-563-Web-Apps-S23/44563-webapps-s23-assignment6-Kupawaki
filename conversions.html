@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversions HTML</title>
+    </head>
+    <body>
+        <h2>Kooper Young shows currency conversions</h2>
+
+        <form>
+            <label for="con_form_base">Enter Base Amount </label>
+            <input  id="con_form_base" type ="number" name="con_form_base" value=50> <br>
+
+            <label for="form1_nick">Enter The Conversion Rate </label>
+            <input id="con_form_conv" type="number" name="con_form_conv" value=35> <br>
+
+            <input type="button" onclick="convert(document.getElementById('con_form_base').value, document.getElementById('con_form_conv').value)" value="Show conversions">
+        </form>
+        <p id="result">This text will be replaced </p>
+
+        <script> 
+            function convert(amount, rate)
+            {
+                result = document.getElementById("result")
+                toShow = ""
+                
+                for (let i = 0; i < 5; i++) 
+                {
+                    toShow = toShow + amount + " is " + amount * rate + "; ";
+                    amount = amount * 2;
+                }
+
+                result.innerHTML = "Conversions are " + toShow;
+            }
+        </script>
+
+        <form>
+            <input type="radio" id="type_form_mean" name="func" value="mean" onclick="chooseOP()">
+            <label for="type_form_mean">Mean</label> <br>
+            <input type="radio" id="type_form_max" name="func" value="maximum" onclick="chooseOP()">
+            <label for="type_form_max">Max</label> <br>
+            <input type="radio" id="type_form_min" name="func" value="minimum" onclick="chooseOP()">
+            <label for="type_form_min">Min</label> <br>
+        </form>
+        <p id="radiores">replaceme</p>
+
+        <script>
+            function chooseOP()
+            {
+                amount = document.getElementById("con_form_base").value
+                rate = document.getElementById("con_form_conv").value
+                mean = document.getElementById("type_form_mean")
+                max = document.getElementById("type_form_max")
+                min = document.getElementById("type_form_min")
+
+                results = document.getElementById("radiores")
+
+                if(mean.checked)
+                {
+                    results.innerHTML = "Mean of " + amount + " and " + rate + " is " + ((Number(amount) + Number(rate)) / 2) + "."
+                }
+                else if(max.checked)
+                {
+                    if(amount > rate)
+                    {
+                        results.innerHTML = "Max of " + amount + " and " + rate + " is " + amount + "."
+                    }
+                    else if(rate > amount)
+                    {
+                        results.innerHTML = "Max of " + amount + " and " + rate + " is " + rate + "."
+                    }
+                    else
+                    {
+                        results.innerHTML = "Max of " + amount + " and " + rate + " is both."
+                    }
+                }
+                else if(min.checked)
+                {
+                    if(amount < rate)
+                    {
+                        results.innerHTML = "Min of " + amount + " and " + rate + " is " + amount + "."
+                    }
+                    else if(rate < amount)
+                    {
+                        results.innerHTML = "Min of " + amount + " and " + rate + " is " + rate + "."
+                    }
+                    else
+                    {
+                        results.innerHTML = "Min of " + amount + " and " + rate + " is both."
+                    }
+                }
+
+
+            }
+        </script>
+
+    </body>
+</html> 
