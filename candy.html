@@ -64,14 +64,14 @@
         </form>
 
         <script>
-            size = document.getElementById("edit_form_1").value
-            price = document.getElementById("edit_form_2").value
-            result = document.getElementById("result")
-
             function updateBox()
             {
-                my_candy_box.size = size
-                my_candy_box.price = price
+                size = document.getElementById("edit_form_1").value
+                price = document.getElementById("edit_form_2").value
+                result = document.getElementById("result")
+
+                my_candy_box["size"] = size
+                my_candy_box["price"] = price
                 result.innerHTML = JSON.stringify(my_candy_box)
             }
         </script>
