@@ -17,21 +17,6 @@
         </form>
         <p id="result">This text will be replaced </p>
 
-        <script> 
-            function convert(amount, rate)
-            {
-                result = document.getElementById("result")
-                toShow = ""
-                
-                for (let i = 0; i < 5; i++) 
-                {
-                    toShow = toShow + amount + " is " + amount * rate + "; ";
-                    amount = amount * 2;
-                }
-
-                result.innerHTML = "Conversions are " + toShow;
-            }
-        </script>
 
         <form>
             <input type="radio" id="type_form_mean" name="func" value="mean" onclick="chooseOP()">
@@ -42,6 +27,18 @@
             <label for="type_form_min">Min</label> <br>
         </form>
         <p id="radiores">replaceme</p>
+
+        <script> 
+            function convert(amount, rate){
+                result = document.getElementById("result")
+                toShow = ""
+                for (let i = 0; i < 5; i++) {
+                    toShow = toShow + amount + " is " + amount * rate + "; ";
+                    amount = amount * 2;
+                }
+                result.innerHTML = "Conversions are " + toShow;
+            }
+        </script>
 
         <script>
             function chooseOP()
@@ -54,42 +51,31 @@
 
                 results = document.getElementById("radiores")
 
-                if(mean.checked)
-                {
+                if(mean.checked){
                     results.innerHTML = "Mean of " + amount + " and " + rate + " is " + ((Number(amount) + Number(rate)) / 2) + "."
                 }
-                else if(max.checked)
-                {
-                    if(amount > rate)
-                    {
+                else if(max.checked){
+                    if(amount > rate){
                         results.innerHTML = "Max of " + amount + " and " + rate + " is " + amount + "."
                     }
-                    else if(rate > amount)
-                    {
+                    else if(rate > amount){
                         results.innerHTML = "Max of " + amount + " and " + rate + " is " + rate + "."
                     }
-                    else
-                    {
+                    else{
                         results.innerHTML = "Max of " + amount + " and " + rate + " is both."
                     }
-                }
-                else if(min.checked)
-                {
-                    if(amount < rate)
-                    {
+                }else if(min.checked){
+                    if(amount < rate){
                         results.innerHTML = "Min of " + amount + " and " + rate + " is " + amount + "."
                     }
-                    else if(rate < amount)
-                    {
+                    else if(rate < amount){
                         results.innerHTML = "Min of " + amount + " and " + rate + " is " + rate + "."
                     }
-                    else
-                    {
+                    else{
                         results.innerHTML = "Min of " + amount + " and " + rate + " is both."
                     }
                 }
             }
         </script>
-
     </body>
 </html> 
